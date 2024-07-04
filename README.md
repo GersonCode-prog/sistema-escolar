@@ -1,70 +1,44 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Sistema Escolar con React y Firebase**
+Este proyecto es un sistema escolar desarrollado en React utilizando Firebase para la gestión de datos. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) de alumnos, incluyendo la gestión de imágenes.
 
-## Available Scripts
+--------------------------------------------------------------------------
 
-In the project directory, you can run:
+**Funcionalidades principales**
+Registro y autenticación de usuarios: Los usuarios pueden registrarse, iniciar sesión y cerrar sesión.
+Gestión de alumnos: Operaciones CRUD para agregar, ver, editar y eliminar información de los alumnos.
+Gestión de imágenes: Subida y almacenamiento de imágenes asociadas a los perfiles de los alumnos.
+Selector de grados: Funcionalidad para seleccionar el grado de cada alumno.
 
-### `npm start`
+---------------------------------------------------------------------------------
+**Tecnologías utilizadas**
+React: Frontend de la aplicación.
+Firebase Firestore: Base de datos NoSQL para almacenar la información de los alumnos.
+Firebase Storage: Almacenamiento para gestionar las imágenes de los alumnos.
+Material-UI: Componentes de interfaz de usuario para una apariencia moderna y consistente.
+react-beautiful-dnd: Para la funcionalidad de arrastrar y soltar en la interfaz de usuario, utilizado para organizar alumnos por grados, por ejemplo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---------------------------------------------------------------------------------
+**Instalación y configuración**
+Clona este repositorio: git clone https://tu-repositorio.git
+Instala las dependencias: npm install
+Configura tu proyecto Firebase:
+Crea un proyecto en Firebase (si no tienes uno).
+Configura Firebase en tu proyecto React (firebase.js o similar) con tus credenciales.
+Habilita Firestore y Firebase Storage en tu proyecto Firebase.
+Inicia la aplicación: npm start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-----------------------------------------------------------------------------------
+**Contribución**
+Si deseas contribuir a este proyecto, sigue estos pasos:
 
-### `npm test`
+Haz un fork del proyecto.
+Crea una nueva rama (git checkout -b feature/feature-name).
+Realiza tus cambios y confirma (git commit -am 'Agrega una nueva característica').
+Haz push a la rama (git push origin feature/feature-name).
+Crea un nuevo Pull Request.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-----------------------------------------------------------
+**Autor**
+Gerson Enrique Batun Suriano
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
