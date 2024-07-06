@@ -1,41 +1,60 @@
 /* Estilos para el dashboard */
 .dashboard {
-    display: flex;
-    height: 100vh;
-  }
-  
-  /* Estilos para el menú de navegación en el dashboard */
-  .nav {
-    width: 200px;
-    background-color: #01bfe9; /* Color de fondo azul */
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .nav ul li {
-    margin-bottom: 10px;
-  }
-  
-  .nav ul li a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  .nav ul li a:hover {
-    background-color: #0097a7; /* Color de fondo azul más oscuro al pasar el ratón */
-  }
-  
-  /* Estilos para el contenido principal en el dashboard */
-  .content {
-    flex-grow: 1;
-    padding: 20px;
-  }
-  
+  display: flex;
+  height: 100vh;
+}
+
+/* Estilos para el menú de navegación en el dashboard */
+.nav {
+  width: 200px;
+  background-color: #01bfe9; /* Color de fondo azul */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav ul li {
+  margin-bottom: 10px;
+}
+
+.nav ul li a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.nav ul li a:hover {
+  background-color: #0097a7; /* Color de fondo azul más oscuro al pasar el ratón */
+}
+
+/* Estilos para los iconos */
+.nav ul li a svg {
+  margin-right: 10px;
+}
+
+/* Estilos para el enlace de cerrar sesión */
+.nav ul li.logout {
+  margin-top: auto; /* Mantiene el enlace de cerrar sesión al final */
+}
+
+.nav ul li.logout a {
+  color: white;
+}
+
+.nav ul li.logout a:hover {
+  background-color: #0097a7; /* Color de fondo azul más oscuro al pasar el ratón */
+}
+
+/* Estilos para el contenido principal en el dashboard */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
