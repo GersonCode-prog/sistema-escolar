@@ -1,0 +1,30 @@
+/* src/components/Inicio/Inicio.css */
+.inicio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .logo {
+    width: 150px; /* Ajusta el tamaño según sea necesario */
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .reloj {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  

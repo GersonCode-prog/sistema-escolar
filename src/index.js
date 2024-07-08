@@ -1,12 +1,14 @@
-// src/index.js
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles.css';  // Importar estilos globales
+import ReactDOM from 'react-dom/client'; // Importa desde 'react-dom/client' para React 18
 import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './index.css'; // Si tienes un archivo CSS global
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Router>
+      <App />
+    </Router>
+  </React.StrictMode>
 );

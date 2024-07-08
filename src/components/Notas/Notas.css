@@ -1,0 +1,113 @@
+/* Estilos generales */
+.container {
+    padding: 20px; /* Ancho del viewport */
+    height: 65vh; /* Alto del viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+  
+  .btn-agregar,
+  .btn-editar,
+  .btn-eliminar {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  
+.notas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .notas-table th, .notas-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .notas-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  
+  /* Estilos para el modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    animation: slide-down 0.3s ease-out;
+  }
+  
+  .modal-content {
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 50px; /* Ajusta este valor según sea necesario */
+    border-radius: 5px;
+    width: 400px;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  /* Animación para el modal */
+  @keyframes slide-down {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .btn-agregar,
+  .btn-editar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-editar {
+    background-color: #28a745;
+  }
+  
+  .btn-agregar:hover,
+  .btn-editar:hover {
+    opacity: 0.8;
+  }
+  

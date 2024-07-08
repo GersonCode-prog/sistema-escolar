@@ -4,6 +4,7 @@ import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from 'firebase
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import './Alumnos.css';
 
 const Alumnos = () => {
   const [alumnos, setAlumnos] = useState([]);
@@ -14,8 +15,8 @@ const Alumnos = () => {
   const [foto, setFoto] = useState(null);
   const [alumnoSeleccionado, setAlumnoSeleccionado] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [fotoEnGrande, setFotoEnGrande] = useState(null); // Estado para la foto en grande
-  const [grado, setGrado] = useState(''); // Estado para el grado seleccionado
+  const [fotoEnGrande, setFotoEnGrande] = useState(null);
+  const [grado, setGrado] = useState('');
 
   useEffect(() => {
     fetchData();
@@ -63,12 +64,13 @@ const Alumnos = () => {
     setApellido(alumno.apellido);
     setEdad(alumno.edad);
     setCodigo(alumno.codigo);
-    setGrado(alumno.grado); // Establecer el grado seleccionado
+    setGrado(alumno.grado);
     setAlumnoSeleccionado(id);
     setShowModal(true);
   };
 
-  const guardarCambios = async () => {
+  const guardarCambios = async (e) => {
+    e.preventDefault();
     if (alumnoSeleccionado) {
       const alumnoData = { nombre, apellido, edad, codigo, grado };
       if (foto) {
@@ -92,20 +94,17 @@ const Alumnos = () => {
     setCodigo('');
     setFoto(null);
     setAlumnoSeleccionado(null);
-    setGrado(''); // Limpiar el estado de grado
+    setGrado('');
   };
 
-  // Función para mostrar la foto en grande
   const showFotoEnGrande = (url) => {
     setFotoEnGrande(url);
   };
 
-  // Función para cerrar la vista de la foto en grande
   const closeFotoEnGrande = () => {
     setFotoEnGrande(null);
   };
 
-  // Opciones de grados
   const grados = [
     'Primero',
     'Segundo',
@@ -183,11 +182,8 @@ const Alumnos = () => {
                   onChange={handleFotoChange}
                 />
               </div>
-              {alumnoSeleccionado ? (
-                <button type="button" onClick={guardarCambios} className="btn-editar">Guardar Cambios</button>
-              ) : (
-                <button type="submit" className="btn-agregar">Agregar Alumno</button>
-              )}
+              <button type="submit" className="btn-save">{alumnoSeleccionado ? 'Guardar Cambios' : 'Agregar Alumno'}</button>
+              <button type="button" className="btn-cancel" onClick={() => { setShowModal(false); clearForm(); }}>Cancelar</button>
             </form>
           </div>
         </div>
