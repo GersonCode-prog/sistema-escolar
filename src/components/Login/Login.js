@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'; // Crea un archivo CSS para tus estilos
+import './Login.css';
+import escuelaImage from '../../assets/escuela1.jpeg'; // Asegúrate de que la ruta sea correcta
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -13,8 +14,7 @@ const Login = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Inicio de sesión exitoso
-        navigate('/inicio'); // Redirigir al dashboard
+        navigate('/inicio');
       })
       .catch((error) => {
         console.error('Error al iniciar sesión:', error);
@@ -22,25 +22,38 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <h2>Inicio de Sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Correo electrónico"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Iniciar Sesión</button>
-      </form>
+    <div className="login-background">
+      <div className="login-container">
+        <div className="login-image">
+          <img src={escuelaImage} alt="Login Illustration" />
+        </div>
+        <div className="login-form">
+          <h2>Inicio de Sesión</h2>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <div className="login-options">
+              <label>
+                <input type="checkbox" /> Recordarme
+              </label>
+              <a href="#forgot-password">¿Olvidaste tu contraseña?</a>
+            </div>
+            <button type="submit">Iniciar Sesión</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

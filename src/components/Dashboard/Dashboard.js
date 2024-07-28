@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link, useNavigate, Outlet } from 'react-router-dom'; // Asegúrate de importar Outlet
+import { Link, useNavigate, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faChalkboardTeacher, faBook, faClipboardList, faSignOutAlt, faHome } from '@fortawesome/free-solid-svg-icons';
-import './Dashboard.css'; // Importamos el archivo de estilos CSS
-import { logout } from '../CerrarSeccion/auth'; // Importa la función de cierre de sesión
+import { faUsers, faChalkboardTeacher, faBook, faClipboardList, faSignOutAlt, faHome, faCalendarAlt, faClock, faUsersCog } from '@fortawesome/free-solid-svg-icons'; // Asegúrate de importar los iconos necesarios
+import './Dashboard.css';
+import { logout } from '../CerrarSeccion/auth';
 
 const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     await logout();
-    navigate('/login'); // Redirigir al login después de cerrar sesión
+    navigate('/login');
   };
 
   return (
@@ -22,6 +22,9 @@ const Dashboard = () => {
           <li><Link to="/maestros"><FontAwesomeIcon icon={faChalkboardTeacher} /> Maestros</Link></li>
           <li><Link to="/materias"><FontAwesomeIcon icon={faBook} /> Materias</Link></li>
           <li><Link to="/notas"><FontAwesomeIcon icon={faClipboardList} /> Notas</Link></li>
+          <li><Link to="/eventos"><FontAwesomeIcon icon={faCalendarAlt} /> Eventos</Link></li>
+          <li><Link to="/asistencia"><FontAwesomeIcon icon={faClock} /> Asistencia</Link></li>
+          <li><Link to="/horarios"><FontAwesomeIcon icon={faUsersCog} /> Horarios</Link></li>
           <li className="logout">
             <button onClick={handleLogout} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer' }}>
               <FontAwesomeIcon icon={faSignOutAlt} /> Cerrar Sesión
@@ -30,7 +33,7 @@ const Dashboard = () => {
         </ul>
       </nav>
       <div className="content">
-        <Outlet /> {/* Aquí se renderizarán las rutas anidadas */}
+        <Outlet />
       </div>
     </div>
   );

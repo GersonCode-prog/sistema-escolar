@@ -79,13 +79,12 @@
 }
 
 .btn-edit {
-  background-color: #28a745; /* Color verde */
+  background-color: #ffc107; /* Color amarillo */
   color: white; /* Texto blanco */
   border: none;
-  padding: 6px 12px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
 }
 
 .btn-edit:hover {
@@ -96,11 +95,11 @@
   background-color: #dc3545; /* Color rojo */
   color: white; /* Texto blanco */
   border: none;
-  padding: 6px 12px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
 }
+
 
 .btn-eliminar:hover {
   opacity: 0.8; /* Efecto de opacidad al pasar el mouse */

@@ -7,31 +7,10 @@ import Notas from './components/Notas/Notas';
 import Inicio from './components/Inicio/Inicio';
 import Login from './components/Login/Login';
 import Dashboard from './components/Dashboard/Dashboard';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-
-const ProtectedRoute = ({ element }) => {
-  const auth = getAuth();
-  const [user, setUser] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-      setLoading(false);
-    });
-    return () => unsubscribe();
-  }, [auth]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
-
-  return element;
-};
+import Horarios from './components/Horarios/Horarios';
+import Asistencia from './components/Asistencia/Asistencia';
+import Eventos from './components/Eventos/Eventos';
+import ProtectedRoute from './ProtectedRoute'; // Importa el componente ProtectedRoute
 
 const AppRoutes = () => (
   <Routes>
@@ -45,8 +24,11 @@ const AppRoutes = () => (
       <Route path="maestros" element={<Maestros />} />
       <Route path="materias" element={<Materias />} />
       <Route path="notas" element={<Notas />} />
+      <Route path="eventos" element={<Eventos />} />
+      <Route path="horarios" element={<Horarios />} />
+      <Route path="asistencia" element={<Asistencia />} />
     </Route>
-    <Route path="*" element={<Navigate to="/inicio" />} />
+    <Route path="*" element={<Navigate to="/login" replace />} />
   </Routes>
 );
 

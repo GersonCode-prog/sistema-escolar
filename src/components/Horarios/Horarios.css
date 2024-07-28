@@ -1,0 +1,25 @@
+.horarios-container {
+  padding: 20px;
+}
+
+.horarios-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.horarios-table th, .horarios-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.horarios-table th {
+  background-color: #f4f4f4;
+}
+
+.horarios-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.horarios-table tr:hover {
+  background-color: #ddd;
+}

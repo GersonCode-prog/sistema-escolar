@@ -1,0 +1,106 @@
+/* Estilos para el overlay del modal */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate de que el overlay esté encima de otros elementos */
+}
+
+/* Estilos para el contenido del modal */
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.evento-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.evento-form input,
+.evento-form .datepicker,
+.evento-form .timepicker {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.evento-form button {
+  padding: 10px;
+  background-color: #012be9;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.evento-form button:hover {
+  background-color: #0097a7;
+}
+
+.evento-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.evento-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.edit-button, .delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.edit-button {
+  color: #ff9900;
+}
+
+.delete-button {
+  color: #ff0000;
+}
+
+.agregar-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.agregar-button:hover {
+  background-color: #218838;
+}

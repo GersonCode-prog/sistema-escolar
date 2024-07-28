@@ -1,156 +1,181 @@
 /* Estilos generales */
 .container {
-    padding: 20px; /* Ancho del viewport */
-    height: 65vh; /* Alto del viewport */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    
+  padding: 20px;
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-  
+.btn-agregar,
+.btn-editar,
+.btn-eliminar {
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.btn-editar {
+  background-color: #ffc107;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+}
+
+.btn-agregar:hover,
+.btn-editar:hover,
+.btn-eliminar:hover {
+  opacity: 0.8;
+}
+
+.alumnos-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.alumnos-table th,
+.alumnos-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.alumnos-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.results-container {
+  margin-top: 20px;
+}
+
+/* Estilos para las imágenes */
+.foto-pequena {
+  max-width: 100px;
+  cursor: pointer;
+}
+
+.foto-en-grande-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.foto-en-grande-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}
+
+.foto-en-grande-content .foto-en-grande-img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.foto-en-grande-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Estilos para el modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: slide-down 0.3s ease-out;
+}
+
+.modal-content {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 5px;
+  width: 90%; /* Ajuste para ser responsive */
+  max-width: 400px; /* Máximo ancho del modal */
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Animación para el modal */
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
   .btn-agregar,
   .btn-editar,
   .btn-eliminar {
-    cursor: pointer;
-    margin-right: 10px;
+    font-size: 14px;
+    padding: 8px 16px;
   }
-  
-  .alumnos-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .alumnos-table th,
-  .alumnos-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .alumnos-table th {
-    background-color: #f2f2f2;
-    text-align: left;
-  }
-  
-  .results-container {
-    margin-top: 20px;
-  }
-  
-  /* Estilos para las imágenes */
-  .foto-pequena {
-    max-width: 100px;
-    cursor: pointer;
-  }
-  
-  .foto-en-grande-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .foto-en-grande-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-  }
-  
-  .foto-en-grande-content .foto-en-grande-img {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .foto-en-grande-content .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 28px;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  /* Estilos para el modal */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    animation: slide-down 0.3s ease-out;
-  }
-  
+
   .modal-content {
-    background: rgb(255, 255, 255);
-    padding: 20px;
-    margin-top: 50px; /* Ajusta este valor según sea necesario */
-    border-radius: 5px;
-    width: 400px;
-    position: relative;
-  }
-  
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  
-  /* Animación para el modal */
-  @keyframes slide-down {
-    from {
-      transform: translateY(-100%);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
     width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+    max-width: 100%;
   }
-  
-  .btn-agregar,
-  .btn-editar {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .btn-editar {
-    background-color: #28a745;
-  }
-  
-  .btn-agregar:hover,
-  .btn-editar:hover {
-    opacity: 0.8;
-  }
-  
+}

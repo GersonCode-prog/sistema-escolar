@@ -1,4 +1,6 @@
 /* src/components/Dashboard/Dashboard.css */
+
+/* Estilos generales para el dashboard */
 .dashboard {
   display: flex;
   height: 100vh;
@@ -7,7 +9,7 @@
 /* Estilos para el menú de navegación en el dashboard */
 .nav {
   width: 200px;
-  background-color: #01bfe9; /* Color de fondo azul */
+  background-color: #01bfe9;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -32,7 +34,7 @@
 }
 
 .nav ul li a:hover {
-  background-color: #0097a7; /* Color de fondo azul más oscuro al pasar el ratón */
+  background-color: #0097a7;
 }
 
 /* Estilos para los iconos */
@@ -42,7 +44,7 @@
 
 /* Estilos para el enlace de cerrar sesión */
 .nav ul li.logout {
-  margin-top: auto; /* Mantiene el enlace de cerrar sesión al final */
+  margin-top: auto;
 }
 
 .nav ul li.logout a {
@@ -50,11 +52,66 @@
 }
 
 .nav ul li.logout a:hover {
-  background-color: #0097a7; /* Color de fondo azul más oscuro al pasar el ratón */
+  background-color: #0097a7;
 }
 
 /* Estilos para el contenido principal en el dashboard */
 .content {
   flex-grow: 1;
   padding: 20px;
+}
+
+/* Media queries para responsive */
+
+@media (max-width: 768px) {
+  .nav {
+    width: 160px; /* Reducir el ancho del menú en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 576px) {
+  .nav {
+    width: 100%; /* Menú ocupa todo el ancho en pantallas muy pequeñas */
+    box-shadow: none; /* Quitar sombra en pantallas muy pequeñas */
+    position: fixed; /* Fijar el menú al desplazarse en pantallas muy pequeñas */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    transform: translateX(-100%); /* Ocultar el menú por defecto en pantallas pequeñas */
+    transition: transform 0.3s ease-out;
+  }
+
+  .nav.open {
+    transform: translateX(0); /* Mostrar el menú al hacer clic en un botón de hamburguesa u otro control */
+  }
+
+  .nav ul {
+    padding-top: 50px; /* Espacio extra para el contenido por encima del menú fijo */
+    background-color: #01bfe9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+  }
+
+  .nav ul li {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .nav ul li a {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 0;
+    border-radius: 0;
+  }
+
+  .nav ul li.logout {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+  }
 }
