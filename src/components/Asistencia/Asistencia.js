@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../../Firebase'; // Ajusta la ruta según sea necesario
+import { db } from '../../Firebase';
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 import './Asistencia.css';
 
@@ -9,6 +9,7 @@ const Asistencia = () => {
   const [selectedAlumno, setSelectedAlumno] = useState('');
   const [estado, setEstado] = useState('Presente');
   const [fecha, setFecha] = useState(new Date().toISOString().split('T')[0]); // Fecha de hoy
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     fetchAlumnos();
@@ -39,6 +40,7 @@ const Asistencia = () => {
       };
       await addDoc(collection(db, 'asistencia'), asistenciaData);
       fetchAsistencias();
+      setModalOpen(false); // Cierra el modal después de registrar
       alert('Asistencia registrada');
     }
   };
@@ -46,6 +48,13 @@ const Asistencia = () => {
   return (
     <div className="container">
       <h1>Asistencia</h1>
+      <button onClick={() => setModalOpen(true)} className="btn-save">Registrar Asistencia</button>
+
+      {modalOpen && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <span className="close" onClick={() => setModalOpen(false)}>&times;</span>
+      <h2>Registrar Asistencia</h2>
       <form onSubmit={registrarAsistencia} className="form">
         <div className="form-group">
           <label htmlFor="alumno">Alumno:</label>
@@ -56,7 +65,9 @@ const Asistencia = () => {
           >
             <option value="">Seleccione un alumno</option>
             {alumnos.map(alumno => (
-              <option key={alumno.id} value={alumno.id}>{alumno.nombre} {alumno.apellido}</option>
+              <option key={alumno.id} value={alumno.id}>
+                {alumno.nombre} {alumno.apellido}
+              </option>
             ))}
           </select>
         </div>
@@ -80,8 +91,14 @@ const Asistencia = () => {
             <option value="Ausente">Ausente</option>
           </select>
         </div>
-        <button type="submit" className="btn-save">Registrar Asistencia</button>
+        <button type="submit" className="btn-save">Guardar</button>
+        <button type="button" onClick={() => setModalOpen(false)} className="btn-close">Cerrar</button>
       </form>
+    </div>
+  </div>
+)}
+
+
       <table className="table">
         <thead>
           <tr>

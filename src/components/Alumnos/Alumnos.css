@@ -15,9 +15,9 @@
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px; /* Ajustado para ser más compacto */
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 14px; /* Ajustado para ser más compacto */
 }
 
 .btn-editar {
@@ -43,7 +43,7 @@
 .alumnos-table th,
 .alumnos-table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 6px; /* Reducido padding para tablas más compactas */
 }
 
 .alumnos-table th {
@@ -57,7 +57,7 @@
 
 /* Estilos para las imágenes */
 .foto-pequena {
-  max-width: 100px;
+  max-width: 80px; /* Reducido tamaño de las imágenes pequeñas */
   cursor: pointer;
 }
 
@@ -92,7 +92,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 28px;
+  font-size: 24px; /* Tamaño de fuente ajustado para el botón de cerrar */
   color: #fff;
   cursor: pointer;
 }
@@ -107,75 +107,56 @@
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center; /* Centra el modal verticalmente */
   animation: slide-down 0.3s ease-out;
 }
 
 .modal-content {
   background: rgb(255, 255, 255);
-  padding: 20px;
-  margin-top: 50px;
-  border-radius: 5px;
-  width: 90%; /* Ajuste para ser responsive */
-  max-width: 400px; /* Máximo ancho del modal */
+  padding: 8px; /* Reducido padding para un modal más compacto */
+  border-radius: 8px; /* Esquinas redondeadas */
+  width: 90%; /* Ajustado para que el modal se ajuste a la pantalla */
+  max-width: 320px; /* Máximo ancho del modal */
+  height: auto; /* Ajusta la altura automáticamente */
+  max-height: 80vh; /* Altura máxima del modal */
+  overflow-y: auto; /* Permite el desplazamiento vertical si el contenido excede la altura */
   position: relative;
 }
 
 .close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px; /* Reducido margen superior */
+  right: 5px; /* Reducido margen derecho */
   cursor: pointer;
-  font-size: 20px;
-}
-
-/* Animación para el modal */
-@keyframes slide-down {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+  font-size: 16px; /* Tamaño de fuente ajustado */
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 8px; /* Reducido margen inferior */
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 2px; /* Reducido margen inferior */
 }
 
 .form-group input {
   width: 100%;
-  padding: 8px;
+  padding: 4px; /* Reducido padding para campos de entrada más compactos */
   box-sizing: border-box;
 }
 
 /* Media queries para responsive */
 @media (max-width: 768px) {
-  .container {
-    height: auto;
-  }
-
   .modal-content {
     width: 90%;
-    max-width: 90%;
+    max-width: 280px; /* Ajustado para pantallas más pequeñas */
   }
 }
 
 @media (max-width: 576px) {
-  .btn-agregar,
-  .btn-editar,
-  .btn-eliminar {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-
   .modal-content {
-    width: 100%;
-    max-width: 100%;
+    width: 95%;
+    max-width: 95%;
   }
 }

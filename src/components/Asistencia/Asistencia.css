@@ -1,11 +1,63 @@
+/* Estilos generales */
 .container {
   padding: 20px;
 }
 
+/* Fondo oscuro que cubre toda la pantalla */
+/* Fondo oscuro que cubre toda la pantalla */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro completo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté en frente de otros elementos */
+}
+
+/* Estilos del modal */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px; /* Ajusta el ancho según tu preferencia */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1001;
+}
+
+/* Asegura que todo el contenido se muestre centrado */
+
+/* Animación del modal */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilos del formulario */
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
 .form-group {
@@ -15,28 +67,45 @@
 
 .form-group label {
   margin-bottom: 5px;
+  font-weight: bold; /* Etiquetas en negrita */
 }
 
 .form-group select,
 .form-group input {
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 16px; /* Tamaño de letra más grande */
 }
 
-.btn-save {
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
+/* Estilos de los botones */
+.btn-save, .btn-close {
+  padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-save {
+  background-color: #28a745;
+  color: white;
 }
 
 .btn-save:hover {
   background-color: #218838;
 }
 
+.btn-close {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-close:hover {
+  background-color: #c82333;
+}
+
+/* Estilos de la tabla */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -46,14 +115,50 @@
 .table th,
 .table td {
   border: 1px solid #ccc;
-  padding: 8px;
+  padding: 12px;
   text-align: left;
 }
 
 .table th {
-  background-color: #f8f8f8;
+  background-color: #007bff; /* Encabezado azul */
+  color: white;
+}
+
+.table td {
+  background-color: white; /* Fondo blanco */
 }
 
 .table tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #e0e0e0; /* Efecto hover */
+}
+
+/* Estilos de los botones de acción */
+.btn-edit {
+  background-color: #ffc107; /* Botón de editar en amarillo */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete {
+  background-color: #dc3545; /* Botón de eliminar en rojo */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
 }
