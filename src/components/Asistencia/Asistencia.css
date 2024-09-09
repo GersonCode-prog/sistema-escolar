@@ -1,7 +1,5 @@
 /* Estilos generales */
-.container {
-  padding: 20px;
-}
+
 
 /* Fondo oscuro que cubre toda la pantalla */
 /* Fondo oscuro que cubre toda la pantalla */
@@ -88,12 +86,12 @@
 }
 
 .btn-save {
-  background-color: #28a745;
+  background-color: #007bff;
   color: white;
 }
 
 .btn-save:hover {
-  background-color: #218838;
+  background-color: #007bff;
 }
 
 .btn-close {
@@ -119,10 +117,7 @@
   text-align: left;
 }
 
-.table th {
-  background-color: #007bff; /* Encabezado azul */
-  color: white;
-}
+
 
 .table td {
   background-color: white; /* Fondo blanco */

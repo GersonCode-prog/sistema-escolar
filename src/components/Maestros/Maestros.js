@@ -41,7 +41,7 @@ const Maestros = () => {
 
   const addMaestro = async (e) => {
     e.preventDefault();
-    if (nombre.trim() !== '' && apellido.trim() !== '' && grado.trim() !== '' && materiaSeleccionada.trim() !== '') {
+    if (nombre.trim() && apellido.trim() && grado.trim() && materiaSeleccionada.trim()) {
       await addDoc(collection(db, 'maestros'), { nombre, apellido, grado, materia: materiaSeleccionada });
       setNombre('');
       setApellido('');
@@ -54,7 +54,7 @@ const Maestros = () => {
 
   const updateMaestro = async (e) => {
     e.preventDefault();
-    if (nombre.trim() !== '' && apellido.trim() !== '' && grado.trim() !== '' && materiaSeleccionada.trim() !== '') {
+    if (nombre.trim() && apellido.trim() && grado.trim() && materiaSeleccionada.trim()) {
       await updateDoc(doc(db, 'maestros', currentMaestroId), { nombre, apellido, grado, materia: materiaSeleccionada });
       setNombre('');
       setApellido('');
@@ -119,7 +119,7 @@ const Maestros = () => {
                 <button className="btn-edit" onClick={() => openModal(maestro)}>
                   <FontAwesomeIcon icon={faEdit} />
                 </button>
-                <button className="btn-eliminar" onClick={() => deleteMaestro(maestro.id)}>
+                <button className="btn-delete" onClick={() => deleteMaestro(maestro.id)}>
                   <FontAwesomeIcon icon={faTrash} />
                 </button>
               </td>
@@ -131,57 +131,62 @@ const Maestros = () => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Agregar/Editar Maestro"
-        className="modal"
-        overlayClassName="overlay"
+        className="modal-content"
+        overlayClassName="modal-overlay"
       >
-        <h2>{editMode ? 'Editar Maestro' : 'Agregar Maestro'}</h2>
-        <form onSubmit={editMode ? updateMaestro : addMaestro}>
-          <div className="form-group">
-            <label>Nombre:</label>
-            <input
-              type="text"
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-            />
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>&times;</span>
+            <h2>{editMode ? 'Editar Maestro' : 'Agregar Maestro'}</h2>
+            <form onSubmit={editMode ? updateMaestro : addMaestro}>
+              <div className="form-group">
+                <label>Nombre:</label>
+                <input
+                  type="text"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label>Apellido:</label>
+                <input
+                  type="text"
+                  value={apellido}
+                  onChange={(e) => setApellido(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label>Grado:</label>
+                <select
+                  value={grado}
+                  onChange={(e) => setGrado(e.target.value)}
+                >
+                  <option value="">Seleccione un grado</option>
+                  <option value="primero">Primero</option>
+                  <option value="segundo">Segundo</option>
+                  <option value="tercero">Tercero</option>
+                  <option value="cuarto">Cuarto</option>
+                  <option value="quinto">Quinto</option>
+                  <option value="sexto">Sexto</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Materia:</label>
+                <select
+                  value={materiaSeleccionada}
+                  onChange={(e) => setMateriaSeleccionada(e.target.value)}
+                >
+                  <option value="">Seleccione una materia</option>
+                  {materias.map(materia => (
+                    <option key={materia.id} value={materia.nombre}>{materia.nombre}</option>
+                  ))}
+                </select>
+              </div>
+              <button type="submit" className="btn-save">{editMode ? 'Guardar Cambios' : 'Agregar Maestro'}</button>
+              <button type="button" className="btn-cancel" onClick={closeModal}>Cancelar</button>
+            </form>
           </div>
-          <div className="form-group">
-            <label>Apellido:</label>
-            <input
-              type="text"
-              value={apellido}
-              onChange={(e) => setApellido(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label>Grado:</label>
-            <select
-              value={grado}
-              onChange={(e) => setGrado(e.target.value)}
-            >
-              <option value="">Seleccione un grado</option>
-              <option value="primero">Primero</option>
-              <option value="segundo">Segundo</option>
-              <option value="tercero">Tercero</option>
-              <option value="cuarto">Cuarto</option>
-              <option value="quinto">Quinto</option>
-              <option value="sexto">Sexto</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label>Materia:</label>
-            <select
-              value={materiaSeleccionada}
-              onChange={(e) => setMateriaSeleccionada(e.target.value)}
-            >
-              <option value="">Seleccione una materia</option>
-              {materias.map(materia => (
-                <option key={materia.id} value={materia.nombre}>{materia.nombre}</option>
-              ))}
-            </select>
-          </div>
-          <button type="submit" className="btn-save">{editMode ? 'Guardar Cambios' : 'Agregar Maestro'}</button>
-          <button type="button" className="btn-cancel" onClick={closeModal}>Cancelar</button>
-        </form>
+        </div>
       </Modal>
     </div>
   );

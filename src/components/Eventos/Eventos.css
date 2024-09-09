@@ -1,106 +1,145 @@
-/* Estilos para el overlay del modal */
-.overlay {
+/* Estilos generales para el contenedor de eventos */
+.eventos-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos para el botón de agregar evento */
+.agregar-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.agregar-button:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para el modal */
+.modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Asegúrate de que el overlay esté encima de otros elementos */
+  background: rgba(0, 0, 0, 0.5);
 }
 
-/* Estilos para el contenido del modal */
-.modal {
+.modal-content {
   background: white;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 4px;
   max-width: 500px;
   width: 100%;
-  animation: slideDown 0.3s ease-out;
+  position: relative;
 }
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+/* Estilos para el botón de cerrar el modal */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 24px;
 }
 
-.evento-form {
+.close:hover {
+  color: #f00;
+}
+
+/* Estilos para el formulario en el modal */
+.evento-form,
+.evento-edit-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .evento-form input,
-.evento-form .datepicker,
-.evento-form .timepicker {
-  width: 100%;
+.evento-edit-form input {
+  margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.evento-form button {
-  padding: 10px;
-  background-color: #012be9;
+.datepicker,
+.timepicker {
+  margin-bottom: 10px;
+}
+
+/* Botones en el modal */
+.btn-save,
+.btn-cancel {
   border: none;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: 10px;
   font-size: 16px;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
-.evento-form button:hover {
-  background-color: #0097a7;
+.btn-save {
+  background-color: #4CAF50;
+  color: white;
 }
 
+.btn-save:hover {
+  background-color: #45a049;
+}
+
+.btn-cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #e53935;
+}
+
+/* Estilos para la lista de eventos */
 .evento-list {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 .evento-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
 }
 
-.edit-button, .delete-button {
+.evento-item span {
+  margin-right: 10px;
+}
+
+/* Botones de edición y eliminación */
+.edit-button,
+.delete-button {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  font-size: 18px;
 }
 
 .edit-button {
-  color: #ff9900;
+  color: #2196F3;
 }
 
 .delete-button {
-  color: #ff0000;
+  color: #f44336;
 }
 
-.agregar-button {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.agregar-button:hover {
-  background-color: #218838;
+.edit-button:hover,
+.delete-button:hover {
+  opacity: 0.7;
 }

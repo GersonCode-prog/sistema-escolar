@@ -7,22 +7,16 @@
   justify-content: flex-start;
 }
 
-.btn-add,
-.btn-edit,
-.btn-eliminar {
-  cursor: pointer;
-  margin-right: 10px;
-}
-
 .table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
 .table th,
 .table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 12px; /* Ajusta según sea necesario */
 }
 
 .table th {
@@ -31,16 +25,7 @@
 }
 
 /* Estilos para el modal */
-.modal {
-  background: rgb(255, 237, 237);
-  padding: 20px;
-  margin-top: 50px; /* Ajusta este valor según sea necesario */
-  border-radius: 5px;
-  width: 400px;
-  position: relative;
-}
-
-.overlay {
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -48,61 +33,73 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
-  animation: slide-down 0.3s ease-out;
+  z-index: 1000;
 }
 
-.btn-cancel {
-  background-color: #dc3545;
-  color: white;
-  margin-right: 10px;
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
 }
 
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-add,
+.btn-edit,
+.btn-delete,
+.btn-cancel,
 .btn-save {
-  background-color: #28a745;
+  cursor: pointer;
   margin-right: 10px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
 }
 
 .btn-add {
-  background-color: #007bff; /* Color azul */
-  color: white; /* Texto blanco */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  background-color: #007bff; /* Azul */
 }
 
 .btn-add:hover {
-  opacity: 0.8; /* Efecto de opacidad al pasar el mouse */
+  opacity: 0.8;
 }
 
 .btn-edit {
-  background-color: #ffc107; /* Color amarillo */
-  color: white; /* Texto blanco */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #ffc107; /* Amarillo */
 }
 
 .btn-edit:hover {
-  opacity: 0.8; /* Efecto de opacidad al pasar el mouse */
+  opacity: 0.8;
 }
 
-.btn-eliminar {
-  background-color: #dc3545; /* Color rojo */
-  color: white; /* Texto blanco */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+.btn-delete {
+  background-color: #dc3545; /* Rojo */
 }
 
+.btn-delete:hover {
+  opacity: 0.8;
+}
 
-.btn-eliminar:hover {
-  opacity: 0.8; /* Efecto de opacidad al pasar el mouse */
+.btn-cancel {
+  background-color: #dc3545; /* Rojo */
+  color: white;
+}
+
+.btn-save {
+  background-color: #28a745; /* Verde */
 }
 
 .close {
@@ -136,5 +133,8 @@
 .form-group select {
   width: 100%;
   padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   box-sizing: border-box;
+  font-size: 14px;
 }

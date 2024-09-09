@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import escuelaImage from '../../assets/escuela1.jpeg'; // Asegúrate de que la ruta sea correcta
@@ -12,7 +12,13 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+
+    // Establecer persistencia local
+    setPersistence(auth, browserLocalPersistence)
+      .then(() => {
+        // Luego de establecer persistencia, iniciar sesión
+        return signInWithEmailAndPassword(auth, email, password);
+      })
       .then((userCredential) => {
         navigate('/inicio');
       })

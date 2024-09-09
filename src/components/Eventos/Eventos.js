@@ -10,6 +10,9 @@ import 'react-time-picker/dist/TimePicker.css';
 import './Eventos.css';
 import Modal from 'react-modal';
 
+// Establecer el elemento root para el modal
+Modal.setAppElement('#root');
+
 const Eventos = () => {
   const [eventos, setEventos] = useState([]);
   const [nuevoEvento, setNuevoEvento] = useState('');
@@ -45,9 +48,7 @@ const Eventos = () => {
         hora: horaEvento 
       });
       setEventos([...eventos, { id: docRef.id, nombre: nuevoEvento, fecha: fechaHoraEvento.toISOString(), hora: horaEvento }]);
-      setNuevoEvento('');
-      setFechaEvento(new Date());
-      setHoraEvento('10:00');
+      clearForm();
       setModalIsOpen(false);
     }
   };
@@ -74,10 +75,7 @@ const Eventos = () => {
         ? { ...evento, nombre: eventoEditado, fecha: fechaHoraEditada.toISOString(), hora: horaEditada } 
         : evento
       ));
-      setEditandoEvento(null);
-      setEventoEditado('');
-      setFechaEditada(new Date());
-      setHoraEditada('10:00');
+      clearForm();
     }
   };
 
@@ -97,6 +95,16 @@ const Eventos = () => {
     }
   };
 
+  const clearForm = () => {
+    setNuevoEvento('');
+    setFechaEvento(new Date());
+    setHoraEvento('10:00');
+    setEditandoEvento(null);
+    setEventoEditado('');
+    setFechaEditada(new Date());
+    setHoraEditada('10:00');
+  };
+
   return (
     <div className="eventos-container">
       <h2>Gestión de Eventos</h2>
@@ -107,30 +115,36 @@ const Eventos = () => {
         className="modal"
         overlayClassName="overlay"
       >
-        <h2>Nuevo Evento</h2>
-        <form onSubmit={handleAddEvento} className="evento-form">
-          <input
-            type="text"
-            value={nuevoEvento}
-            onChange={(e) => setNuevoEvento(e.target.value)}
-            placeholder="Nuevo Evento"
-            required
-          />
-          <DatePicker
-            selected={fechaEvento}
-            onChange={handleDateChange}
-            dateFormat="dd/MM/yyyy"
-            className="datepicker"
-          />
-          <TimePicker
-            onChange={setHoraEvento}
-            value={horaEvento}
-            className="timepicker"
-            disableClock={true}
-            clearIcon={null}
-          />
-          <button type="submit">Agregar Evento</button>
-        </form>
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <span className="close" onClick={() => { setModalIsOpen(false); clearForm(); }}>&times;</span>
+            <h2>{editandoEvento ? 'Editar Evento' : 'Nuevo Evento'}</h2>
+            <form onSubmit={editandoEvento ? handleEditEvento : handleAddEvento} className="evento-form">
+              <input
+                type="text"
+                value={editandoEvento ? eventoEditado : nuevoEvento}
+                onChange={(e) => editandoEvento ? setEventoEditado(e.target.value) : setNuevoEvento(e.target.value)}
+                placeholder={editandoEvento ? 'Editar Evento' : 'Nombre del Evento'}
+                required
+              />
+              <DatePicker
+                selected={editandoEvento ? fechaEditada : fechaEvento}
+                onChange={editandoEvento ? handleEditDateChange : handleDateChange}
+                dateFormat="dd/MM/yyyy"
+                className="datepicker"
+              />
+              <TimePicker
+                onChange={editandoEvento ? setHoraEditada : setHoraEvento}
+                value={editandoEvento ? horaEditada : horaEvento}
+                className="timepicker"
+                disableClock={true}
+                clearIcon={null}
+              />
+              <button type="submit" className="btn-save">{editandoEvento ? 'Guardar' : 'Agregar Evento'}</button>
+              <button type="button" className="btn-cancel" onClick={() => { setModalIsOpen(false); clearForm(); }}>Cancelar</button>
+            </form>
+          </div>
+        </div>
       </Modal>
       <ul className="evento-list">
         {eventos.map(evento => (

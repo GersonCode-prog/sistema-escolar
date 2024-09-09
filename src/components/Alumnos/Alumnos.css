@@ -1,11 +1,5 @@
 /* Estilos generales */
-.container {
-  padding: 20px;
-  height: 65vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+
 
 .btn-agregar,
 .btn-editar,
@@ -42,7 +36,7 @@
 
 .alumnos-table th,
 .alumnos-table td {
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 6px; /* Reducido padding para tablas más compactas */
 }
 

@@ -101,22 +101,27 @@ const Materias = () => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel={editMode ? "Editar Materia" : "Agregar Materia"}
-        className="modal"
-        overlayClassName="overlay"
+        className="modal-content"
+        overlayClassName="modal-overlay"
       >
-        <h2>{editMode ? 'Editar Materia' : 'Agregar Materia'}</h2>
-        <form onSubmit={editMode ? updateMateria : addMateria}>
-          <div className="form-group">
-            <label>Nombre:</label>
-            <input
-              type="text"
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-            />
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>&times;</span>
+            <h2>{editMode ? 'Editar Materia' : 'Agregar Materia'}</h2>
+            <form onSubmit={editMode ? updateMateria : addMateria}>
+              <div className="form-group">
+                <label>Nombre:</label>
+                <input
+                  type="text"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                />
+              </div>
+              <button type="submit" className="btn-save">{editMode ? 'Guardar Cambios' : 'Agregar Materia'}</button>
+              <button type="button" className="btn-cancel" onClick={closeModal}>Cancelar</button>
+            </form>
           </div>
-          <button type="submit" className="btn-save">{editMode ? 'Guardar Cambios' : 'Agregar Materia'}</button>
-          <button type="button" className="btn-cancel" onClick={closeModal}>Cancelar</button>
-        </form>
+        </div>
       </Modal>
     </div>
   );

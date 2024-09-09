@@ -1,11 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
 
-const ProtectedRoute = ({ element }) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
-
+const ProtectedRoute = ({ user, element }) => {
   if (!user) {
     return <Navigate to="/login" replace />;
   }
