@@ -86,7 +86,7 @@
 }
 
 .btn-delete {
-  background-color: #dc3545; /* Rojo */
+  background-color: #e0c4c6; /* Rojo */
 }
 
 .btn-delete:hover {
@@ -94,12 +94,12 @@
 }
 
 .btn-cancel {
-  background-color: #dc3545; /* Rojo */
+  background-color: #8c8c8c; /* Rojo */
   color: white;
 }
 
 .btn-save {
-  background-color: #28a745; /* Verde */
+  background-color: #007bff; /* Verde */
 }
 
 .close {

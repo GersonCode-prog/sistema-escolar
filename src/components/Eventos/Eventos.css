@@ -6,7 +6,7 @@
 
 /* Estilos para el botón de agregar evento */
 .agregar-button {
-  background-color: #4CAF50;
+  background-color: #2196F3;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -87,7 +87,7 @@
 }
 
 .btn-save {
-  background-color: #4CAF50;
+  background-color: #2196F3;
   color: white;
 }
 
@@ -96,13 +96,11 @@
 }
 
 .btn-cancel {
-  background-color: #f44336;
+  background-color: #6c757d;
   color: white;
 }
 
-.btn-cancel:hover {
-  background-color: #e53935;
-}
+
 
 /* Estilos para la lista de eventos */
 .evento-list {
